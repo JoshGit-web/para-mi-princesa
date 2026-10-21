@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi princesita ♡</title>
+<style>
+:root {
+  --pink: #e9b8ce;
+  --soft-pink: #f9e8ef;
+  --cream: #fff9f0;
+  --lilac: #d9c8ed;
+  --purple: #8b638e;
+  --ink: #302733;
+  --muted: #786777;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at top left, #f7dfe9, transparent 48%),
+    linear-gradient(140deg, #fff9f0, #f8edf7 60%, #f4dfe9);
+  min-height: 100vh;
+}
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; }
+.top {
+  text-align: center;
+  padding: 22px 14px 12px;
+}
+.brand {
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--purple);
+  text-transform: uppercase;
+}
+nav {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 12px 14px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255,249,240,.93);
+  border-top: 1px solid #ead8e2;
+  border-bottom: 1px solid #ead8e2;
+  backdrop-filter: blur(12px);
+  scrollbar-width: thin;
+}
+nav button {
+  flex: 0 0 auto;
+  border: 1px solid #e4ccdd;
+  border-radius: 30px;
+  padding: 10px 14px;
+  background: #fffaf7;
+  color: #70516e;
+  cursor: pointer;
+}
+nav button.active, nav button:hover {
+  background: var(--ink);
+  color: white;
+  border-color: var(--ink);
+}
+main {
+  width: min(720px, 100%);
+  margin: auto;
+  padding: 20px 16px 40px;
+}
+.page {
+  display: none;
+  animation: appear .45s ease both;
+}
+.page.active { display: block; }
+@keyframes appear {
+  from { opacity: 0; transform: translateY(9px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.paper {
+  background: rgba(255,250,245,.92);
+  border: 1px solid #ecd7e2;
+  border-radius: 26px;
+  padding: clamp(22px, 5vw, 42px);
+  box-shadow: 0 15px 45px rgba(91,53,83,.09);
+  text-align: center;
+}
+.ornament {
+  color: #b17eaa;
+  letter-spacing: 8px;
+  font-size: 18px;
+}
+h1 {
+  font-size: clamp(36px, 8vw, 58px);
+  line-height: 1.1;
+  margin: 20px 0 14px;
+  font-weight: normal;
+}
+h2 {
+  font-size: clamp(28px, 6vw, 39px);
+  font-weight: normal;
+  margin: 12px 0 18px;
+}
+h3 { font-size: 20px; font-weight: normal; }
+p {
+  font-size: 17px;
+  line-height: 1.85;
+  color: var(--muted);
+}
+.small {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--purple);
+  text-transform: uppercase;
+}
+.signature { color: var(--purple); font-style: italic; }
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 24px;
+}
+.btn {
+  border: 0;
+  border-radius: 30px;
+  padding: 13px 20px;
+  background: var(--ink);
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .2s, background .2s;
+}
+.btn:hover { transform: translateY(-2px); background: #64485f; }
+.btn.light {
+  color: #674966;
+  background: #f1dce9;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 12px;
+  margin-top: 22px;
+}
+.note {
+  background: #f8e8ef;
+  border: 1px solid #efd4e2;
+  padding: 18px 14px;
+  border-radius: 18px;
+  line-height: 1.7;
+  color: #755b72;
+}
+.note:nth-child(even) { background: #eee5f6; border-color: #e0d2ef; }
+.timeline {
+  text-align: left;
+  border-left: 2px solid #d9bdd8;
+  margin: 26px 0 0 10px;
+  padding-left: 22px;
+}
+.timeline p { margin-top: 4px; }
+.oruguitas {
+  padding: 24px 15px;
+  background: #2d2632;
+  border-radius: 22px;
+  color: #fff5fb;
+  margin-top: 22px;
+}
+.oruguitas p { color: #e4d4e7; }
+.oruguitas h3 { color: #e9cbe9; }
+.letter {
+  text-align: left;
+  background: #fff6ee;
+  border: 1px dashed #d6a9c4;
+  border-radius: 16px;
+  padding: 23px;
+  margin-top: 20px;
+  line-height: 1.9;
+  color: #6c5869;
+  white-space: pre-line;
+}
+.final-question {
+  background: linear-gradient(145deg,#fff8f3,#f4e5f7);
+}
+.answer {
+  margin-top: 20px;
+  background: #f0e1f1;
+  border-radius: 16px;
+  padding: 18px;
+  color: #624866;
+  line-height: 1.8;
+}
+.hidden { display: none; }
+footer {
+  text-align: center;
+  color: #a0809d;
+  font-size: 13px;
+  padding: 10px 20px 28px;
+}
+.heart {
+  display: inline-block;
+  color: #c57ea6;
+  animation: pulse 1.8s infinite;
+}
+@keyframes pulse {
+  50% { transform: scale(1.2); }
+}
+@media(max-width:440px) {
+  .grid { grid-template-columns: 1fr; }
+  nav button { padding: 9px 12px; font-size: 13px; }
+  .paper { border-radius: 21px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration: .01ms !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand">Un pequeño secreto de Josh ♡</div>
+  <div class="ornament" style="margin-top:12px">✿ ♡ ✿</div>
+</header>
+
+<nav aria-label="Navegación principal">
+  <button class="active" data-page="inicio">⌂ Inicio</button>
+  <button data-page="princesita">♡ Mi princesita</button>
+  <button data-page="historia">✿ Toga y Shoto</button>
+  <button data-page="razones">୨୧ Mis razones</button>
+  <button data-page="cancion">♫ Canción</button>
+  <button data-page="carta">✉ Mi carta</button>
+  <button data-page="pregunta">♥ La pregunta</button>
+</nav>
+
+<main>
+  <section class="page active" id="inicio">
+    <div class="paper">
+      <div class="ornament">୨୧ · ♡ · ୨୧</div>
+      <p class="small">Hecho especialmente para ti</p>
+      <h1>Para mi<br><span style="color:#a66f99">princesita</span> ♡</h1>
+      <p>Hice este pequeño rinconcito porque hay cosas que me gusta sentir contigo y que merecen algo más bonito que un simple mensaje.</p>
+      <p>Así que ponte cómoda, preciosa. Tengo unas cositas que contarte…</p>
+      <div class="actions">
+        <button class="btn" data-go="princesita">Entrar a mi mundo ♡</button>
+      </div>
+      <p class="signature">Con cariño, Josh</p>
+    </div>
+  </section>
+
+  <section class="page" id="princesita">
+    <div class="paper">
+      <div class="ornament">✿ ♡ ✿</div>
+      <h2>Mi princesita</h2>
+      <p>¿Sabes qué me gusta de hablar contigo? Que a veces empezamos con cualquier tontería y, sin darme cuenta, termino teniendo una sonrisa que no estaba ahí antes.</p>
+      <p>Me gusta cómo te preocupas por mí, cómo me haces sentir cuando hablamos y cómo podemos divertirnos incluso con las cosas más sencillas.</p>
+      <p>Quizá tú no notes lo mucho que significan esos pequeños detalles, pero yo sí. Y quería que lo supieras.</p>
+      <div class="note">Confesión importante: estás acusada de ocaparar mi corazón y mi mente todo el tiempo... No tengo más declaraciones, su señoría. JAJAJA ♡</div>
+      <div class="actions"><button class="btn" data-go="historia">Nuestra historia →</button></div>
+    </div>
+  </section>
+
+  <section class="page" id="historia">
+    <div class="paper">
+      <div class="ornament">✿ ୨୧ ✿</div>
+      <h2>De Toga a mi princesita</h2>
+      <p>Todo empezó en un grupo, con unas presentaciones y dos nombres que quizá no imaginaban que terminarían formando parte de una historia tan bonita.</p>
+      <div class="grid">
+        <div class="note"><h3>♡ Toga</h3>La chica que conocí.</div>
+        <div class="note"><h3>❄ Shoto</h3>El que era yo jeje.</div>
+      </div>
+      <div class="timeline">
+        <h3>Primero, unas presentaciones…</h3>
+        <p>Yo te conocí como Toga y tú me conociste como Shoto.</p>
+        <h3>Después, las conversaciones.</h3>
+        <p>Fuimos hablando, riéndonos y compartiendo pequeños momentos.</p>
+        <h3>Y ahora…</h3>
+        <p>Aquí estoy, preparando una página entera para hacerte una pregunta que me importa muchísimo.</p>
+      </div>
+      <p class="signature">Creo que Shoto no estaba preparado para esto. ♡</p>
+      <div class="actions"><button class="btn" data-go="razones">Siguiente capítulo →</button></div>
+    </div>
+  </section>
+
+  <section class="page" id="razones">
+    <div class="paper">
+      <div class="ornament">♡ ♡ ♡</div>
+      <h2>Mis razones para elegirte</h2>
+      <p>No hace falta que seas perfecta. Me gustas por las cosas que te hacen ser tú.</p>
+      <div class="grid">
+        <div class="note">♡ Porque me haces sonreír incluso a través de una pantalla.</div>
+        <div class="note">✿ Porque me gusta cómo te preocupas por mí.</div>
+        <div class="note">୨୧ Porque nuestras pláticas pueden alegrarme el día.</div>
+        <div class="note">☾ Porque contigo puedo bromear, reírme y sentirme a gusto.</div>
+        <div class="note">♡ Porque quiero seguir descubriendo las pequeñas cosas que te hacen especial.</div>
+        <div class="note">✿ Porque me ilusiona la idea de construir algo bonito contigo.</div>
+      </div>
+      <p>Y aunque escribiera muchísimas razones más, seguiría faltándome espacio para todo lo que quiero conocerte.</p>
+      <div class="actions"><button class="btn" data-go="cancion">Hay una canción para ti →</button></div>
+    </div>
+  </section>
+
+  <section class="page" id="cancion">
+    <div class="paper">
+      <div class="ornament">♫ · ♡ · ♫</div>
+      <h2>Nuestra canción</h2>
+      <p>Hay canciones que te hacen pensar en alguien especial. Esta es la que quiero compartir contigo.</p>
+      <div class="oruguitas">
+        <div style="font-size:34px">🐛　♡　🐛</div>
+        <h3 style="font-size:27px">Dos Oruguitas</h3>
+        <p>Sebastián Yatra · Encanto</p>
+        <p>Una canción para acompañar la idea de conocernos, crecer y dejar que lo bonito avance a su propio ritmo.</p>
+        <a class="btn light" href="https://www.youtube.com/results?search_query=Sebastian+Yatra+Dos+Oruguitas+official" target="_blank" rel="noopener noreferrer">Escuchar la canción ♫</a>
+      </div>
+      <p>Ojalá algún día la escuchemos y nos acordemos de este pequeño rincón. ♡</p>
+      <div class="actions"><button class="btn" data-go="carta">Tengo una carta para ti →</button></div>
+    </div>
+  </section>
+
+  <section class="page" id="carta">
+    <div class="paper">
+      <div class="ornament">✉ ♡ ✉</div>
+      <p class="small">Léela cuando quieras</p>
+      <h2>Para ti, mi princesita</h2>
+      <p>Hay cosas que me salen más fácil cuando bromeo contigo, pero hoy quería decirte algo de corazón.</p>
+      <button class="btn" id="openLetter">Abrir mi carta ♡</button>
+      <div class="letter hidden" id="letterText">Mi princesita:
+
+No sé exactamente en qué momento hablar contigo se volvió algo tan bonito para mí, pero me alegra muchísimo que haya pasado.
+
+Me gusta cómo me haces sentir, cómo te preocupas por mí y cómo podemos convertir una conversación cualquiera en un momento que quiero recordar. Me encanta que podamos divertirnos, hablar de tantas cosas y compartir un poquito de nuestros días.
+
+No quiero prometerte que todo será perfecto ni apresurar lo que estamos construyendo. Quiero seguir conociéndote, escucharte, reírme contigo y crear recuerdos que sean nuestros.
+
+Tal vez esto me dé un poquito de vergüenza, pero me hacía ilusión preparar algo especial para ti. Quería que pudieras ver, aunque fuera un poquito, lo mucho que me importas.
+
+Gracias por ser parte de mis días y por hacerlos más bonitos.
+
+Con muchísimo cariño,
+Josh ♡</div>
+      <p class="signature">Siempre con cariño, Josh.</p>
+      <div class="actions"><button class="btn" data-go="pregunta">Una última cosita… →</button></div>
+    </div>
+  </section>
+
+  <section class="page" id="pregunta">
+    <div class="paper final-question">
+      <div class="ornament">♡ ✿ ♡</div>
+      <p class="small">La pregunta que quería hacerte</p>
+      <h2>Mi princesita…</h2>
+      <p>Me gustas muchísimo. Me haría muy feliz poder llamarte mi novia, seguir conociéndonos y construir algo bonito contigo, a nuestro ritmo.</p>
+      <h1 style="font-size:clamp(32px,7vw,48px)">¿Quieres ser<br>mi novia? <span class="heart">♡</span></h1>
+      <p>No tienes que responder por compromiso ni hacerlo ahora mismo. Quiero que te sientas libre de decirme lo que de verdad sientes, porque tú también mereces sentirte cómoda y querida.</p>
+      <div class="actions">
+        <button class="btn" data-answer="si">Sí, quiero, Josh ♡</button>
+        <button class="btn light" data-answer="hablar">Quiero hablarlo contigo</button>
+        <button class="btn light" data-answer="tiempo">Necesito un poquito de tiempo</button>
+      </div>
+      <div class="answer hidden" id="answerBox" aria-live="polite"></div>
+      <p class="signature">Con todo mi cariño, Josh ♡</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Hecho con cariño para mi princesita <span class="heart">♥</span><br>
+  Un pequeño universo que ahora es nuestro..
+</footer>
+
+<script>
+const navButtons = document.querySelectorAll("nav button");
+const pages = document.querySelectorAll(".page");
+
+function showPage(id) {
+  if (!document.getElementById(id)) return;
+  pages.forEach(page => page.classList.toggle("active", page.id === id));
+  navButtons.forEach(button =>
+    button.classList.toggle("active", button.dataset.page === id)
+  );
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+navButtons.forEach(button =>
+  button.addEventListener("click", () => showPage(button.dataset.page))
+);
+
+document.querySelectorAll("[data-go]").forEach(button =>
+  button.addEventListener("click", () => showPage(button.dataset.go))
+);
+
+document.getElementById("openLetter").addEventListener("click", function() {
+  const letter = document.getElementById("letterText");
+  letter.classList.toggle("hidden");
+  this.textContent = letter.classList.contains("hidden")
+    ? "Abrir mi carta ♡"
+    : "Cerrar mi carta ♡";
+});
+
+const answers = {
+  si: "AY, MI PRINCESITA ♡ Me haría inmensamente feliz vivir esto contigo. Gracias por elegirme. Quiero que sigamos construyendo algo bonito, con cariño, sinceridad y muchas risas. — Josh",
+  hablar: "Claro que sí, mi niña ♡ Podemos hablarlo con calma. Me importa escucharte y que los dos podamos decir lo que sentimos con confianza. — Josh",
+  tiempo: "Está bien, toguita ♡ Tómate el tiempo que necesites. No tienes que apresurarte ni responder por compromiso. Gracias por ser sincera conmigo. — Josh"
+};
+
+document.querySelectorAll("[data-answer]").forEach(button => {
+  button.addEventListener("click", () => {
+    const box = document.getElementById("answerBox");
+    box.textContent = answers[button.dataset.answer];
+    box.classList.remove("hidden");
+  });
+});
+</script>
+</body>
+</html>
